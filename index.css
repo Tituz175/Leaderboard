@@ -1,3 +1,81 @@
 /* #e5c9c5 */
 /* #f2f1f1 */
 /* #d4bdbc */
+* {
+  box-sizing: border-box;
+  font-family: Montserrat;
+}
+h1 {
+  text-align: center;
+  font-weight: 400;
+}
+section:first-child {
+  width: 45%;
+  display: flex;
+  margin: 0rem auto;
+  justify-content: space-around;
+}
+section input,
+button {
+  width: 23%;
+  font-size: 1.4rem;
+  font-weight: 290;
+  padding: 0.7rem 1rem;
+  border: 1px solid #e5c9c5;
+  outline-color: #e5c9c5;
+}
+button{
+    color: white;
+    background-color: #e5c9c5;
+    border: 0rem;
+}
+section:last-child{
+    margin-top: 2rem;
+}
+.player-container{
+    width: 60%;
+    margin: 0rem auto 0rem;
+    padding: 1rem 0.7rem;
+    background-color: #e5c9c5;
+}
+.player-details{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+}
+.player-name-time{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.name{
+    font-size: 1.3rem;
+    font-weight: 365;
+    margin-bottom: 0.5rem;
+}
+.time{
+    font-size: 0.8rem;
+    font-weight: 350;
+    color: rgb(112, 112, 112);
+}
+.score{
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
+.player-score-controller{
+    display: flex;
+    width: 18%;
+    justify-content: space-around;
+    align-self: center;
+}
+.controller-icon{
+    display: flex;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
