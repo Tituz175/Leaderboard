@@ -16,10 +16,10 @@ section:first-child {
   justify-content: space-around;
   flex-direction: column;
 }
-section:first-child p{
-    display: none;
-    text-align: center;
-    color: red;
+section:first-child p {
+  display: none;
+  text-align: center;
+  color: red;
 }
 section input,
 button {
@@ -38,21 +38,22 @@ button {
 section:last-child {
   margin-top: 2rem;
 }
-.player-container {
+.playerContainer {
   width: 75%;
-  margin: 0rem auto 0rem;
+  margin: 1rem auto;
   padding: 1rem 0.7rem;
   background-color: #e5c9c5;
 }
-.player-details {
+.playerDetails {
   display: flex;
   width: 90%;
   justify-content: space-between;
 }
-.player-name-time {
+.playerNametime {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: 25%;
 }
 .name {
   font-size: 1.3rem;
@@ -68,19 +69,39 @@ section:last-child {
   display: flex;
   align-items: center;
   font-size: 1.2rem;
+  min-width: 15%;
 }
 .score {
   display: flex;
   align-items: center;
   font-size: 1.2rem;
+  min-width: 5%;
 }
-.player-score-controller {
+.playerScorecontroller {
   display: flex;
   width: 18%;
   justify-content: space-around;
   align-self: center;
 }
-.controller-icon {
+.iconDel {
+  display: flex;
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.iconPlus5 {
+  display: flex;
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.iconMinus5 {
   display: flex;
   background-color: white;
   width: 50px;
