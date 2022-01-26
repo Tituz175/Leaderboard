@@ -15,10 +15,14 @@
     </header>
     <main>
         <section>
-            <input type="text" name="" id="" placeholder="First Name">
-            <input type="text" name="" id="" placeholder="Last Name">
-            <input type="text" name="" id="" placeholder="Player Score">
-            <button>Add Player</button>
+            <form action="#">
+                <input type="text" name="" id="first-name" placeholder="First Name">
+                <input type="text" name="" id="last-name" placeholder="Last Name">
+                <input type="text" name="" id="country" placeholder="Country">
+                <input type="text" name="" id="player-score" placeholder="Player Score">
+                <button type="reset">Add Player</button>
+            </form>
+            <p id="response"></p>
         </section>
         <section>
             <div class="player-container">
@@ -27,6 +31,7 @@
                         <div class="name">Firstname Lastname</div>
                         <div class="time">Jan 28,2020 10:00</div>
                     </div>
+                    <div class="country">Nigeria</div>
                     <div class="score">score</div>
                     <div class="player-score-controller">
                         <div class="controller-icon">🗑️</div>
