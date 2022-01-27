@@ -244,12 +244,12 @@ let minus = (id) => {
     if (id == i) {
       if (!(element.playerScore < 1)) {
         element.playerScore -= 5;
+        effect.textContent = "-5";
+        effect.setAttribute("id", "minus5");
+        setTimeout(() => {
+          display();
+        }, 2500);
       }
     }
   });
-  effect.textContent = "-5";
-  effect.setAttribute("id", "minus5");
-  setTimeout(() => {
-    display();
-  }, 2500);
 };
