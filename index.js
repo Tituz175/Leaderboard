@@ -8,6 +8,7 @@ let playerCountry;
 let playerScore;
 let allfields = true;
 
+
 let createDiv = (divName) => {
   let className = divName;
   divName = document.createElement("div");
@@ -16,7 +17,7 @@ let createDiv = (divName) => {
 };
 
 let name,
-  date,
+  time,
   country,
   score,
   playerContainer,
@@ -29,7 +30,7 @@ let name,
 
 let elementCreates = () => {
   name = createDiv("name");
-  date = createDiv("date");
+  time = createDiv("time");
   country = createDiv("country");
   score = createDiv("score");
   playerContainer = createDiv("playerContainer");
@@ -41,16 +42,67 @@ let elementCreates = () => {
   iconMinus5 = createDiv("iconMinus5");
 };
 
-let arrangePlayerdetails = (myfirstName, mylastName, myCountry, myScore) => {
+const showDateTime = () => {
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = months[now.getMonth()];
+  const date = now.getDate();
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  let seconds = now.getSeconds();
+  if (hours < 10) {
+    hours = "0" + hours;
+  }
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
+
+  const dateMonthYear = `${month} ${date}, ${year}`;
+
+  const time = hours + ":" + minutes;
+  const fullTime = dateMonthYear + " " + time;
+  return fullTime;
+};
+
+let count = 0;
+
+let arrangePlayerdetails = (
+  myfirstName,
+  mylastName,
+  myDate,
+  myCountry,
+  myScore
+) => {
   elementCreates();
   name.textContent = `${myfirstName} ${mylastName}`;
   playerNametime.appendChild(name);
-  playerNametime.appendChild(date);
+  time.textContent = myDate;
+  playerNametime.appendChild(time);
   iconDel.textContent = "🗑️";
+  iconDel.setAttribute("id", `del${count}`);
   playerScorecontroller.appendChild(iconDel);
   iconPlus5.textContent = "+5";
+  iconPlus5.setAttribute("id", `+5${count}`);
   playerScorecontroller.appendChild(iconPlus5);
   iconMinus5.textContent = "-5";
+  iconMinus5.setAttribute("id", `-5${count}`);
   playerScorecontroller.appendChild(iconMinus5);
   playerDetails.appendChild(playerNametime);
   country.textContent = myCountry;
@@ -60,24 +112,10 @@ let arrangePlayerdetails = (myfirstName, mylastName, myCountry, myScore) => {
   playerDetails.appendChild(playerScorecontroller);
   playerContainer.appendChild(playerDetails);
   playerMother.append(playerContainer);
+  count++;
 };
 
-// arrangePlayerdetails();
-// arrangePlayerdetails();
-// arrangePlayerdetails();
-// arrangePlayerdetails();
-// arrangePlayerdetails();
 
-// console.log(elements.length)
-// for (let index = 0; index < myElements.length; index++) {
-//   myElements[index] = document.createElement("div");
-//   let className = myElements[index]
-//   console.log(className)
-//   myElements[index].setAttribute("class", `${className}`);
-//   // console.log(myElements[index])
-// }
-
-// 11
 let players = [];
 // const playerObj = {
 //   details: {
@@ -146,13 +184,12 @@ let playerObj;
 
 let saveDetails = () => {
   playerObj = {};
-
   playerObj.firstName = firstName;
   playerObj.lastName = lastName;
   playerObj.playerCountry = playerCountry;
   playerObj.playerScore = parseInt(playerScore);
+  playerObj.creationTime = showDateTime();
   players.push(playerObj);
-  playerObj = undefined;
 };
 
 let clearResponse = () => {
@@ -176,15 +213,16 @@ button.addEventListener("click", () => {
           arrangePlayerdetails(
             element.firstName,
             element.lastName,
+            element.creationTime,
             element.playerCountry,
             element.playerScore
           );
         });
+        count = 0;
       } else {
         players.forEach((element) => {
           if (element.firstName == firstName && element.lastName == lastName) {
             sameDetails = true;
-            clearResponse();
           }
         });
         if (!sameDetails) {
@@ -194,10 +232,12 @@ button.addEventListener("click", () => {
             arrangePlayerdetails(
               element.firstName,
               element.lastName,
+              element.creationTime,
               element.playerCountry,
               element.playerScore
             );
           });
+          count = 0;
         } else {
           response.textContent = "Player details exist already";
           response.style.display = "block";
