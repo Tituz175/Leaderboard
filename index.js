@@ -8,7 +8,6 @@ let playerCountry;
 let playerScore;
 let allfields = true;
 
-
 let createDiv = (divName) => {
   let className = divName;
   divName = document.createElement("div");
@@ -83,6 +82,8 @@ const showDateTime = () => {
 
 let count = 0;
 
+
+
 let arrangePlayerdetails = (
   myfirstName,
   mylastName,
@@ -96,7 +97,7 @@ let arrangePlayerdetails = (
   time.textContent = myDate;
   playerNametime.appendChild(time);
   iconDel.textContent = "🗑️";
-  iconDel.setAttribute("id", `del${count}`);
+  iconDel.setAttribute("onClick", `del(${count})`);
   playerScorecontroller.appendChild(iconDel);
   iconPlus5.textContent = "+5";
   iconPlus5.setAttribute("id", `+5${count}`);
@@ -114,7 +115,6 @@ let arrangePlayerdetails = (
   playerMother.append(playerContainer);
   count++;
 };
-
 
 let players = [];
 // const playerObj = {
@@ -200,6 +200,20 @@ let clearResponse = () => {
 
 let sameDetails = false;
 
+let display = () => {
+  playerMother.textContent = "";
+  players.forEach((element) => {
+    arrangePlayerdetails(
+      element.firstName,
+      element.lastName,
+      element.creationTime,
+      element.playerCountry,
+      element.playerScore
+    );
+  });
+  count = 0;
+};
+
 button.addEventListener("click", () => {
   response.style.display = "none";
   inputs = document.querySelectorAll("input");
@@ -208,17 +222,7 @@ button.addEventListener("click", () => {
     if (!playerScoretypeCheck()) {
       if (!(players.length >= 1)) {
         saveDetails();
-        playerMother.textContent = "";
-        players.forEach((element) => {
-          arrangePlayerdetails(
-            element.firstName,
-            element.lastName,
-            element.creationTime,
-            element.playerCountry,
-            element.playerScore
-          );
-        });
-        count = 0;
+        display()
       } else {
         players.forEach((element) => {
           if (element.firstName == firstName && element.lastName == lastName) {
@@ -227,17 +231,7 @@ button.addEventListener("click", () => {
         });
         if (!sameDetails) {
           saveDetails();
-          playerMother.textContent = "";
-          players.forEach((element) => {
-            arrangePlayerdetails(
-              element.firstName,
-              element.lastName,
-              element.creationTime,
-              element.playerCountry,
-              element.playerScore
-            );
-          });
-          count = 0;
+          display()
         } else {
           response.textContent = "Player details exist already";
           response.style.display = "block";
@@ -257,3 +251,12 @@ button.addEventListener("click", () => {
     allfields = true;
   }
 });
+
+let del = (id) => {
+  players.forEach((element, i) => {
+    if (id == i) {
+      players.splice(id, 1);
+    }
+  });
+  display()
+};
