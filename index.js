@@ -82,8 +82,6 @@ const showDateTime = () => {
 
 let count = 0;
 
-
-
 let arrangePlayerdetails = (
   myfirstName,
   mylastName,
@@ -100,9 +98,11 @@ let arrangePlayerdetails = (
   iconDel.setAttribute("onClick", `del(${count})`);
   playerScorecontroller.appendChild(iconDel);
   iconPlus5.textContent = "+5";
+  iconPlus5.setAttribute("onClick", `add(${count})`);
   iconPlus5.setAttribute("id", `+5${count}`);
   playerScorecontroller.appendChild(iconPlus5);
   iconMinus5.textContent = "-5";
+  iconMinus5.setAttribute("onClick", `minus(${count})`);
   iconMinus5.setAttribute("id", `-5${count}`);
   playerScorecontroller.appendChild(iconMinus5);
   playerDetails.appendChild(playerNametime);
@@ -222,7 +222,7 @@ button.addEventListener("click", () => {
     if (!playerScoretypeCheck()) {
       if (!(players.length >= 1)) {
         saveDetails();
-        display()
+        display();
       } else {
         players.forEach((element) => {
           if (element.firstName == firstName && element.lastName == lastName) {
@@ -231,7 +231,7 @@ button.addEventListener("click", () => {
         });
         if (!sameDetails) {
           saveDetails();
-          display()
+          display();
         } else {
           response.textContent = "Player details exist already";
           response.style.display = "block";
@@ -258,5 +258,25 @@ let del = (id) => {
       players.splice(id, 1);
     }
   });
-  display()
+  display();
+};
+
+let add = (id) => {
+  players.forEach((element, i) => {
+    if (id == i) {
+      element.playerScore += 5;
+    }
+  });
+  display();
+};
+
+let minus = (id) => {
+  players.forEach((element, i) => {
+    if (id == i) {
+      if (!(element.playerScore < 1)) {
+        element.playerScore -= 5;
+      }
+    }
+  });
+  display();
 };
