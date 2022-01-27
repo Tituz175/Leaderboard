@@ -221,9 +221,16 @@ let del = (id) => {
   players.forEach((element, i) => {
     if (id == i) {
       players.splice(id, 1);
+      let the = document.querySelectorAll(".playerContainer")[i]
+      the.style.animation = "del 2s ease 0s 1"
     }
   });
-  display();
+  
+  setTimeout(() => {
+    display();
+  }, 2000);
+
+  // animation: del 2s ease 0s infinite;
 };
 
 let add = (id) => {

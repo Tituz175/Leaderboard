@@ -4,6 +4,7 @@
 * {
   box-sizing: border-box;
   font-family: Montserrat;
+  overflow-x: hidden;
 }
 h1 {
   text-align: center;
@@ -43,6 +44,8 @@ section:last-child {
   margin: 1rem auto;
   padding: 1rem 0.7rem;
   background-color: #e5c9c5;
+  
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
 }
 .playerDetails {
   display: flex;
@@ -152,11 +155,12 @@ section:last-child {
     opacity: 0;
   }
 }
-/* @keyframes plus5 {
-  from {
-    margin-left: 0px;
+
+@keyframes del {
+  from{
+    margin-left: 100px;
   }
-  to {
-    margin-left: 300px;
+  to{
+    margin-left: 700px;
   }
-} */
+}
