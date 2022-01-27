@@ -1,44 +1,45 @@
 const button = document.querySelector("button");
 const response = document.querySelector("#response");
 const playerMother = document.querySelector("#playerMother");
-let inputs;
-let firstName;
-let lastName;
-let playerCountry;
-let playerScore;
-let allfields = true;
-
-let createDiv = (divName) => {
-  let className = divName;
-  divName = document.createElement("div");
-  divName.setAttribute("class", className);
-  return divName;
-};
-
 let name,
   time,
   country,
   score,
+  effect,
   playerContainer,
   playerDetails,
   playerNametime,
   playerScorecontroller,
   iconDel,
   iconPlus5,
-  iconMinus5;
+  iconMinus5,
+  inputs,
+  firstName,
+  lastName,
+  playerCountry,
+  playerScore;
+let allfields = true;
+
+let createElem = (name, element) => {
+  let className = name;
+  name = document.createElement(element);
+  name.setAttribute("class", className);
+  return name;
+};
 
 let elementCreates = () => {
-  name = createDiv("name");
-  time = createDiv("time");
-  country = createDiv("country");
-  score = createDiv("score");
-  playerContainer = createDiv("playerContainer");
-  playerDetails = createDiv("playerDetails");
-  playerNametime = createDiv("playerNametime");
-  playerScorecontroller = createDiv("playerScorecontroller");
-  iconDel = createDiv("iconDel");
-  iconPlus5 = createDiv("iconPlus5");
-  iconMinus5 = createDiv("iconMinus5");
+  name = createElem("name", "div");
+  time = createElem("time", "div");
+  country = createElem("country", "div");
+  score = createElem("score", "div");
+  effect = createElem("effect", "span");
+  playerContainer = createElem("playerContainer", "div");
+  playerDetails = createElem("playerDetails", "div");
+  playerNametime = createElem("playerNametime", "div");
+  playerScorecontroller = createElem("playerScorecontroller", "div");
+  iconDel = createElem("iconDel", "div");
+  iconPlus5 = createElem("iconPlus5", "div");
+  iconMinus5 = createElem("iconMinus5", "div");
 };
 
 const showDateTime = () => {
@@ -108,7 +109,9 @@ let arrangePlayerdetails = (
   playerDetails.appendChild(playerNametime);
   country.textContent = myCountry;
   playerDetails.appendChild(country);
+  effect.textContent = "5";
   score.textContent = myScore;
+  score.appendChild(effect);
   playerDetails.appendChild(score);
   playerDetails.appendChild(playerScorecontroller);
   playerContainer.appendChild(playerDetails);
@@ -117,44 +120,6 @@ let arrangePlayerdetails = (
 };
 
 let players = [];
-// const playerObj = {
-//   details: {
-//     firstName: "",
-//     lastName: "",
-//     playerCountry: "",
-//     playerScore: 0,
-//   },
-//   detailsUpdate(firstName, lastName, playerCountry, playerScore) {
-//     this.details.firstName = firstName;
-//     this.details.lastName = lastName;
-//     this.details.playerCountry = playerCountry;
-//     this.details.playerScore = playerScore;
-//     players.push(this.details);
-//   },
-//   displayDetails() {
-//     this.players.forEach((element) => {
-//       // console.log(element)
-//       name.textContent = `${this.firstName} ${lastName}`;
-//       country.textContent = `${this.playerCountry}`;
-//       score.textContent = `${this.playerScore}`;
-//     });
-//   },
-// };
-
-// class Player {
-//   constructor(firstName, lastName, playerCountry, playerScore) {
-//     this.firstName = firstName;
-//     this.lastName = lastName;
-//     this.playerCountry = playerCountry;
-//     this.playerScore = playerScore;
-//   }
-//   getName() {
-//    return(this.firstName + " " + this.lastName);
-//   }
-// }
-
-// sola = new Player("Sola","Aye","Ghana","0")
-// console.log(sola.getName())
 
 let checkAllinput = (array) => {
   array.forEach((element) => {
@@ -267,7 +232,11 @@ let add = (id) => {
       element.playerScore += 5;
     }
   });
-  display();
+  effect.textContent = "+5";
+  effect.setAttribute("id", "plus5");
+  setTimeout(() => {
+    display();
+  }, 2500);
 };
 
 let minus = (id) => {
@@ -278,5 +247,9 @@ let minus = (id) => {
       }
     }
   });
-  display();
+  effect.textContent = "-5";
+  effect.setAttribute("id", "minus5");
+  setTimeout(() => {
+    display();
+  }, 2500);
 };

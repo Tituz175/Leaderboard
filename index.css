@@ -75,7 +75,7 @@ section:last-child {
   display: flex;
   align-items: center;
   font-size: 1.2rem;
-  min-width: 5%;
+  min-width: 15%;
 }
 .playerScorecontroller {
   display: flex;
@@ -110,3 +110,53 @@ section:last-child {
   align-items: center;
   border-radius: 50%;
 }
+.effect {
+  display: none;
+  opacity: 0.5;
+  position: relative;
+  left: -13px;
+}
+#plus5 {
+  display: block;
+  color: #0e7041;
+  animation: add 3s ease 0s 1;
+}
+#minus5 {
+  display: block;
+  color: #fd5e53;
+  animation: minus 3s ease 0s 1;
+}
+
+@keyframes add {
+  0% {
+    margin-left: -13px;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    margin-left: 25px;
+    opacity: 0;
+  }
+}
+
+@keyframes minus {
+  0% {
+    margin-left: -13px;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    margin-left: -40px;
+    opacity: 0;
+  }
+}
+/* @keyframes plus5 {
+  from {
+    margin-left: 0px;
+  }
+  to {
+    margin-left: 300px;
+  }
+} */
