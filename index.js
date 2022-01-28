@@ -217,15 +217,17 @@ button.addEventListener("click", () => {
   }
 });
 
+let currentElement;
+
 let del = (id) => {
   players.forEach((element, i) => {
     if (id == i) {
       players.splice(id, 1);
-      let the = document.querySelectorAll(".playerContainer")[i]
-      the.style.animation = "del 2s ease 0s 1"
+      currentElement = document.querySelectorAll(".playerContainer")[i];
+      currentElement.style.animation = "del 2s ease 0s 1";
     }
   });
-  
+
   setTimeout(() => {
     display();
   }, 2000);
@@ -237,10 +239,12 @@ let add = (id) => {
   players.forEach((element, i) => {
     if (id == i) {
       element.playerScore += 5;
+      currentElement = document.querySelectorAll(".effect")[i];
     }
   });
-  effect.textContent = "+5";
-  effect.setAttribute("id", "plus5");
+
+  currentElement.textContent = "+5";
+  currentElement.setAttribute("id", "plus5");
   setTimeout(() => {
     display();
   }, 2500);
@@ -251,8 +255,9 @@ let minus = (id) => {
     if (id == i) {
       if (!(element.playerScore < 1)) {
         element.playerScore -= 5;
-        effect.textContent = "-5";
-        effect.setAttribute("id", "minus5");
+        currentElement = document.querySelectorAll(".effect")[i];
+        currentElement.textContent = "-5";
+        currentElement.setAttribute("id", "minus5");
         setTimeout(() => {
           display();
         }, 2500);
