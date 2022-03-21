@@ -179,6 +179,7 @@ section:last-child {
     text-align: center;
     margin-top: 0.2rem;
     border-radius: 5px;
+    font-weight: 400;
   }
   section:first-child p {
     font-size: 0.9rem;
