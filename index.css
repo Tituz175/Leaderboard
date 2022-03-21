@@ -183,6 +183,9 @@ section:last-child {
   section:first-child p {
     font-size: 0.9rem;
   }
+  .playerContainer, section:first-child {
+    width: 90%;
+  }
   .playerDetails {
     width: 100%;
   }
@@ -217,7 +220,7 @@ section:last-child {
   button {
     font-size: 92%;
   }
-  .playerContainer{
+  .playerContainer {
     width: 80%;
   }
   .playerDetails {
