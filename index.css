@@ -36,6 +36,7 @@ button {
   color: white;
   background-color: #e5c9c5;
   border: 0rem;
+  cursor: pointer;
 }
 section:last-child {
   margin-top: 2rem;
@@ -97,6 +98,7 @@ section:last-child {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  cursor: pointer;
 }
 .iconPlus5 {
   display: flex;
@@ -106,6 +108,7 @@ section:last-child {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  cursor: pointer;
 }
 .iconMinus5 {
   display: flex;
@@ -115,6 +118,7 @@ section:last-child {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  cursor: pointer;
 }
 .effect {
   display: none;
