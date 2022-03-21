@@ -16,6 +16,7 @@ section:first-child {
   margin: 0rem auto;
   justify-content: space-around;
   flex-direction: column;
+  text-align: center;
 }
 section:first-child p {
   display: none;
@@ -25,7 +26,7 @@ section:first-child p {
 section input,
 button {
   width: 19%;
-  font-size: 1.4rem;
+  font-size: 100%;
   font-weight: 290;
   padding: 0.7rem 1rem;
   border: 1px solid #e5c9c5;
@@ -44,7 +45,8 @@ section:last-child {
   margin: 1rem auto;
   padding: 1rem 0.7rem;
   background-color: #e5c9c5;
-  
+  border-radius: 5px;
+
   /* animation: name duration timing-function delay iteration-count direction fill-mode; */
 }
 .playerDetails {
@@ -79,6 +81,7 @@ section:last-child {
   align-items: center;
   font-size: 1.2rem;
   min-width: 15%;
+  overflow-y: hidden;
 }
 .playerScorecontroller {
   display: flex;
@@ -117,7 +120,7 @@ section:last-child {
   display: none;
   opacity: 0.5;
   position: relative;
-  left: -13px;
+  left: -12px;
 }
 #plus5 {
   display: block;
@@ -132,35 +135,113 @@ section:last-child {
 
 @keyframes add {
   0% {
-    margin-left: -13px;
+    margin-top: 0px;
   }
   50% {
     opacity: 1;
   }
   100% {
-    margin-left: 25px;
+    margin-top: -30px;
     opacity: 0;
   }
 }
 
 @keyframes minus {
   0% {
-    margin-left: -13px;
+    margin-bottom: 0px;
   }
   50% {
     opacity: 1;
   }
   100% {
-    margin-left: -40px;
+    margin-bottom: -40px;
     opacity: 0;
   }
 }
 
 @keyframes del {
-  from{
+  from {
     margin-left: 100px;
   }
-  to{
+  to {
     margin-left: 700px;
+  }
+}
+
+@media screen and (max-width: 726px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  section input,
+  button {
+    width: 100%;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 0.2rem;
+    border-radius: 5px;
+  }
+  section:first-child p {
+    font-size: 0.9rem;
+  }
+  .playerDetails {
+    width: 100%;
+  }
+  .playerScorecontroller {
+    width: 25%;
+  }
+  .name {
+    font-size: 1rem;
+  }
+  .time {
+    font-size: 0.6rem;
+  }
+  .country {
+    font-size: 0.9rem;
+  }
+  .score {
+    font-size: 0.9rem;
+  }
+  .iconDel,
+  .iconMinus5,
+  .iconPlus5 {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media screen and (min-width: 726px) and (max-width: 1120px) {
+  section:first-child {
+    width: 80%;
+  }
+  section input,
+  button {
+    font-size: 92%;
+  }
+  .playerContainer{
+    width: 80%;
+  }
+  .playerDetails {
+    width: 100%;
+  }
+  .playerScorecontroller {
+    width: 25%;
+  }
+  .name {
+    font-size: 1rem;
+  }
+  .time {
+    font-size: 0.6rem;
+  }
+  .country {
+    font-size: 0.9rem;
+  }
+  .score {
+    font-size: 0.9rem;
+  }
+  .iconDel,
+  .iconMinus5,
+  .iconPlus5 {
+    width: 30px;
+    height: 30px;
   }
 }
